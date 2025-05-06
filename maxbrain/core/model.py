@@ -1,6 +1,6 @@
 from google.ai import generativelanguage as genai
-from maxbrain.core.prompt import maxbrain_prompt
-from maxbrain.agents.calendar import calendar_agent
+from .prompt import maxbrain_prompt
+from ..agents.calendar import calendar_agent
 
 # Initialize model with system prompt
 def initialize_model():

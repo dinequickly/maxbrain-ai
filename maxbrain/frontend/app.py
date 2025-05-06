@@ -6,6 +6,7 @@ import os
 # Add the parent directory to the path so we can import our modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
+# Use absolute imports for better compatibility with Streamlit Cloud
 from maxbrain.core.model import initialize_model, start_conversation
 from maxbrain.memory.vector_store import MemoryStore
 from maxbrain.agents.project import ProjectAgent

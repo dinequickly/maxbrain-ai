@@ -1,4 +1,9 @@
-from google.ai import generativelanguage as genai
+import os
+try:
+    import google.generativeai as genai
+except ImportError:
+    genai = None
+
 from .prompt import maxbrain_prompt
 from ..agents.calendar import calendar_agent
 
@@ -6,12 +11,22 @@ from ..agents.calendar import calendar_agent
 def initialize_model():
     try:
         # For production with actual API key
-        model = genai.GenerativeModel(
-            'gemini-1.5-pro',
-            system_instruction=maxbrain_prompt["system_instruction"],
-            # tools=[calendar_agent]  # Commented out due to compatibility issues
-        )
-        return model
+        if genai:
+            api_key = os.environ.get("GOOGLE_API_KEY")
+            if api_key:
+                genai.configure(api_key=api_key)
+                model = genai.GenerativeModel(
+                    'gemini-1.5-pro',
+                    system_instruction=maxbrain_prompt["system_instruction"],
+                    # tools=[calendar_agent]  # Commented out due to compatibility issues
+                )
+                return model
+            else:
+                print("No Google API key found in environment variables")
+        else:
+            print("Google Generative AI package not available")
+        # Return a mock model for development
+        return MockModel()
     except Exception as e:
         print(f"Error initializing model: {str(e)}")
         # Return a mock model for development

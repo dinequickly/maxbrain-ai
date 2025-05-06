@@ -17,7 +17,7 @@ MaxBrain AI is an agentic operating system that serves as:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/maxbrain-ai.git
+git clone https://github.com/dinequickly/maxbrain-ai.git
 cd maxbrain-ai
 ```
 
@@ -36,10 +36,10 @@ export GOOGLE_API_KEY="your_api_key_here"
 #### Web Interface
 
 ```bash
-python -m maxbrain.main --mode web --port 12000
+streamlit run streamlit_app.py
 ```
 
-This will start the Streamlit web interface on port 12000. You can access it at http://localhost:12000
+This will start the Streamlit web interface. You can access it at http://localhost:8501
 
 #### CLI Mode
 
@@ -48,6 +48,17 @@ python -m maxbrain.main --mode cli
 ```
 
 This will start MaxBrain in command-line interface mode.
+
+### Streamlit Cloud Deployment
+
+1. Fork this repository to your GitHub account
+2. Go to [Streamlit Cloud](https://streamlit.io/cloud)
+3. Create a new app and select this repository
+4. Set the main file path to `streamlit_app.py`
+5. Add the following secrets in the Streamlit Cloud dashboard:
+   - `GOOGLE_API_KEY`
+   - `SUPABASE_URL`
+   - `SUPABASE_KEY`
 
 ## Project Structure
 
@@ -92,4 +103,4 @@ The current implementation uses a simplified memory store. For production use, y
 
 ## License
 
-[MIT License](LICENSE)# maxbrain-ai
+[MIT License](LICENSE)

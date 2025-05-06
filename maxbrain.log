@@ -1,0 +1,3 @@
+2025-05-06 05:02:19,392 - MaxBrain - WARNING - GOOGLE_API_KEY environment variable not set. Using mock mode.
+2025-05-06 05:02:19,392 - MaxBrain - INFO - Environment setup complete
+2025-05-06 05:02:19,616 - MaxBrain - INFO - Starting Streamlit web interface on port 12000
